@@ -1,0 +1,23 @@
+
+
+
+  <div style="text-align:center">
+    <span><b>Filter Movies  </b></span>
+    <mat-form-field style="margin : 0% 1% ;">
+      <mat-select [(value)]="defaultFilterValue">
+        <mat-option *ngFor="let filter of filterAllowedValues" [value]="filter">
+          {{filter}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-radio-group class="example-radio-group" [(ngModel)]="defaultSortType">
+      <mat-radio-button class="example-radio-button" *ngFor="let type of sortType" [value]="type">
+        {{type}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <button mat-raised-button color="primary" style="margin:0% 1%;" (click)="filter()">Filter</button>
+  </div>
+
+  <div style="text-align:center" class="container">
+    <img [src]="image.path" alt="{{image.title}}" *ngFor="let image of posterImagePaths" width="250px" height="250px" style="margin: 5px; cursor: pointer; opacity: 0.9;" class="img-thumbnail" (click)="openMovieDetail(image.id)">
+  </div>

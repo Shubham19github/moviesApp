@@ -1,0 +1,26 @@
+<div class="container" *ngIf="dataArrived">
+  <div class="row my-3">
+      <div class="col-sm-3 text-center">
+          <img class="img-thumbnail" src="{{posterImage}}" alt="Movie Poster">
+      </div>
+      <div class="col-sm-9">
+          <div class="card border-light text-white bg-info mb-3">
+              <div class="card-body">
+                  <h5 class="card-title"><b>{{movieDetail.original_title}}</b></h5>
+                  <p class="card-text">{{ movieDetail.overview =='' ? 'N/A' : movieDetail.overview }}</p>
+                  <p class="card-text">Genres : <span *ngFor="let genre of movieDetail.genres"><font style="background-color: white; color: black; padding: 2px 3px; margin: 0 2px;">{{ genre.name =='' ? 'N/A' : genre.name }}</font></span></p>
+                  <p class="card-text">Rating : {{ movieDetail.vote_average =='' ? 'N/A' : movieDetail.vote_average }}</p>
+                  <p class="card-text">Duration : {{ movieDetail.runtime ==null ? 'N/A' : movieDetail.runtime+' Minutes' }}</p>
+                  <p class="card-text">Budget : {{ movieDetail.budget =='' ? 'N/A' : '$ '+movieDetail.budget }}</p>
+                  <p class="card-text">Tagline : {{ movieDetail.tagline =='' ? 'N/A' : movieDetail.tagline }}</p>
+                  <p class="card-text">Status : {{ movieDetail.status =='' ? 'N/A' : movieDetail.status }}</p>
+                  <p class="card-text">Release Date : {{ movieDetail.release_date =='' ? 'N/A' : movieDetail.release_date }}</p>
+                  <p class="card-text"><a style="color: black;" href="{{movieDetail.homepage}}" target="blank">{{ movieDetail.homepage =='' ? 'N/A' : "Home Page" }}</a></p>
+              </div>
+          </div>
+      </div>
+      <br>
+      <button mat-raised-button color="primary" style="margin:0% 1%;" (click)="goBack()">Go Back</button>
+  </div>
+</div>
+
